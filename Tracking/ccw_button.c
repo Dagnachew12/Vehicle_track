@@ -1,14 +1,3 @@
-
-/*----------------------------------------------------------------------------
-    File name   : Int_button.c
-    Description : demonstrates on how to interface a button as an external interupt
-                  source to wake up the processor from power-down modes
-
-    Procesor    : ARM7TDMI-S on LPC2103 MCU
-    
-  ECEg-4501 - Microcomputers and interfacing, lab exercise II
- ----------------------------------------------------------------------------*/
-
 #include "NXP/iolpc2148.h"
 #include "interrupts.h"
 #include "led.h"
