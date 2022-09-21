@@ -1,14 +1,3 @@
-/*----------------------------------------------------------------------------
-    File name   : main.c
-    Description : demonstrates on how to set the processor to power-down (sleep)
-                  state and use a button to wake up from power-down mode using external
-                  interrupt, thereby conserving energy and boosting the system performance
-
-    Procesor    : Philips LPC2148 MCU with ARM7TDMI-S core
-   
-  ECEg-4501 - Microcomputers and interfacing, lab-exercise II
- ----------------------------------------------------------------------------*/
-
 #include <intrinsics.h>    //for low level functions (like interrupt enable/disable)
 #include "system.h"
 #include "interrupts.h"
