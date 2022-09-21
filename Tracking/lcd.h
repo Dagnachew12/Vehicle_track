@@ -1,4 +1,3 @@
-
 #include "NXP/iolpc2148.h"
 
 #define LCD_RS IO1PIN_bit.P1_24

@@ -1,11 +1,3 @@
-/*--------------------------------------------------------------
- File:      led.c
- Purpose:   To control the LED connected to P0.8
- Compiler:  IAR EW 5.5
- Processor: Philips LPC2148 with ARM7TDMI-s Core
- Note:      Refer to the simulation schematic to learn how the LED is connected
-----------------------------------------------------------------*/
-
 #include "NXP/iolpc2138.h"
 
 #include "led.h"

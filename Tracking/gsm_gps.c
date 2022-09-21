@@ -1,19 +1,3 @@
-
-/*----------------------------------------------------------------------------
-  File name   : uart.c
-  Description : implements functions for the UART module for performing simple data 
-                transmit/receive functions on the serial line using RS-232 protocol
-
-  System      : Philips LPC2148 MCU with ARM7TDMI-S core
-  
-  ECEg-4501 - Microcomputers and interfacing, lab exercise II
- 
-  
-  Note:   Please refer to the manual on Chapter - 10  (Universal Asynchronous Reciever & Transmitter)
-          as you study this
-
- ----------------------------------------------------------------------------*/
- 
 #include "NXP/iolpc2148.h"  //for register definitions
 #include "adc.h"
 #include "gsm_gps.h"
@@ -79,13 +63,6 @@ void gsm_gps_init(void)
   U1FCR &= 0x3F; 
 }
 
-/*----------------------------------------------------------
-Function:   Transmits a single byte on the UART serial line
-Returns:    Nothing
-Arguments:  Character to be transmitted
-Notes:      waits until the transmit holding register (THR) becomes empty
-            (interrupts and timeout can be used for more efficient implementation)  
-------------------------------------------------------------*/
 void send_char(char data)
 {
   while(U0LSR_bit.TEMT ==0);      //Wait for previous transmission to finish
@@ -98,14 +75,6 @@ void send_char1(char data)
   U1THR = data;                   //Shift out the data serially on the TX line
 }
 
-
-/*----------------------------------------------------------
-Function:   Transmits a string of bytes on the UART serial line
-Returns:    Nothing
-Arguments:  a pointer to the string
-Notes:      waits until the transmit holding register (THR) becomes empty 
-            (interrupts and timeout can be used for more efficient implementation)    
-------------------------------------------------------------*/
 void send_string(char *str)
 {
  
@@ -126,13 +95,6 @@ void send_string1(char *str)
   }
 }
 
-/*----------------------------------------------------------
-Function:   Receives a single byte from the UART serial line
-Returns:    The character received
-Arguments:  None
-Notes:      waits until valid data is received from the line   
-            (interrupts and timeout can be used for efficient implementation)    
-------------------------------------------------------------*/
 char get_char(void)
 {
   char data;                     //variable to hold incoming byte 
@@ -152,13 +114,6 @@ char get_char1(void)
   return data;                  //return data received to the calling program
 }
 
-/*----------------------------------------------------------
-Function:   Receives a string of bytes on the UART serial line and fills in the given buffer
-Returns:    Nothing
-Arguments: a pointer to the string buffer to be filled and the length of the string in bytes
-Notes:      waits until data is received
-            (interrupts and timeout can be used for efficient implementation)    
-------------------------------------------------------------*/
 void get_string(char *buffer, unsigned short length)
 {
   for(int i=0; i < length; i++)

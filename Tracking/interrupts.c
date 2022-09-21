@@ -1,23 +1,3 @@
-/*----------------------------------------------------------------------------
-    File name   : interrupts.c
-
-    Description : implements interrupt initialization and installing routines
-
-    Procesor    : Philips LPC2148 MCU with ARM7TDMI-s Core
-
-    Note        : In every great computer system interrups play a major role and hence, 
-                  are the most indespensable resources in the system
-
-                [Please refer to LPC2148 MCU user manual, chapter 7 "VIC"]
-
-           Acronyms:
-                VIC = Vectored Interrupt Controller (chapter 7 on Manual)
-                IRQ = Interrupt Request (Normal interrupt request to the ARM VIC)
-                FIQ = Fast Interrupt Request
-   
- ECEg-4501 - Microcomputers and interfacing, lab exercise II
- ----------------------------------------------------------------------------*/
-
 #include "NXP/iolpc2138.h"
 #include "interrupts.h"
 
@@ -26,17 +6,6 @@
 void DefVectISR(void);          //Default ISR for non-vectored IRQ
 static void (* fiq_isr)(void);  //FIQ ISR (there can only be one FIQ)
 
-/*-------------------------------------------------------------------------
-   Function Name: VIC_init
-
-   Parameters: None
- 
-   Return:  None
- 
-   Description: Initializes the Vectored Interrupt Controller
-                Clears and Disables all interrupts. All interrupts are set
-                to IRQ mode. 
- ---------------------------------------------------------------------------*/
 void VIC_init(void)
 {
   unsigned int *VectAddr = (unsigned int *)&VICVectAddr0; //define pointer to vector address
@@ -58,17 +27,7 @@ void VIC_init(void)
     VectCntl[i] = 0x0;
   }
 }
-/*---------------------------------------------------------------------------------
-   Function Name: Instal_IRQ
 
-   Parameters   :Interrupt Number, pointer to the user ISR, and VIC channel
- 
-   Return       : None
- 
-   Description: Installs Interrupt Serice Routine(ISR) at selected VIC channel and
-                enables the interrupt. This function can be used for enabling
-                a default interrupt if it is called with channel >= VIC_CHANNELS
- ----------------------------------------------------------------------------------*/
 void install_IRQ(unsigned int IntNumber, void (*ISR)(void), unsigned int channel)
 {
    unsigned int * VectAddr = (unsigned int *)&VICVectAddr0;
@@ -89,15 +48,6 @@ void install_IRQ(unsigned int IntNumber, void (*ISR)(void), unsigned int channel
    VICIntEnable = 1 << IntNumber;  //Enable Interrupt
 }
 
-/*--------------------------------------------------------------------------
-  Function Name: Install_FIQ
-
-  Parameters   : Interrupt Number and pointer to the user ISR
- 
-  Return       :  None
- 
-  Description: Sets Interrupt in FIQ mode and enables it
- --------------------------------------------------------------------------*/
 void install_FIQ(unsigned int IntNumber,   void (*ISR)(void))
 {
   VICIntEnClear = 1<<IntNumber;   //Disable Interrupt
@@ -105,15 +55,7 @@ void install_FIQ(unsigned int IntNumber,   void (*ISR)(void))
   fiq_isr = ISR;                  //Set interrupt Vector
   VICIntEnable = 1 << IntNumber;  //Enable Interrupt
 }
-/*--------------------------------------------------------------------------
-  Function Name: IRQ_Handler
 
-  Parameters   :None
- 
-  Return       :None
- 
-  Description  :The IRQ Handler (when IRQ occurs CPU branches to here)
- -------------------------------------------------------------------------*/
 __irq __arm void IRQ_Handler(void)
 {
   void (* IntVector)(void);
@@ -124,26 +66,12 @@ __irq __arm void IRQ_Handler(void)
   VICVectAddr = 0;                    //Dummy write to Vector address register (Errata)
 }
 
-/*--------------------------------------------------------------------------
-  Function Name: FIQ_Handler
-  Parameters   : None
- 
-  Return       : None
- 
-  Description  : The FIQ Handler
- ---------------------------------------------------------------------------*/
+
 __fiq __arm void FIQ_Handler(void)
 {
   (* fiq_isr)();                             //Call ISR
 }
-/*---------------------------------------------------------------------------
-  Function Name: DefVectISR
-  Parameters   : None
- 
-  Return       : None
- 
-  Description  : The Non-vectored IRQ ISR
- --------------------------------------------------------------------------*/
+
 
 static void DefVectISR (void)   
 {

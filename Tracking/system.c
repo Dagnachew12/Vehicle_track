@@ -1,20 +1,4 @@
-/*--------------------------------------------------------------
- File:      system.c
- Purpose:   To initialize and configure the ARM Clock source
- Compiler:  IAR EW 5.5
- System:    Philips LPC2148 MCU with ARM7TDMI-s core
- 
- Notes:
-     PLL = Phase Locked Loop - Is an electronic circuit consisting of
-	                           Current controlled oscillator(CCO), phase detector
- 							   and frequency multiplier.
-		   The task of the PLL is to generate the required clock for the CPU from
-		   the crystal oscillator base frequency.
-		   
-	 PLL feed code = The byte sequence (0xAA-0x55) is required to change the PLL config.
-	                 to protect it from changing inadvertently by spurious system activity
-					 or external processes.
-----------------------------------------------------------------*/
+
 #include "NXP/iolpc2148.h"
 
 void clock_init(void)

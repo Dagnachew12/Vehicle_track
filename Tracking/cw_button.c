@@ -1,14 +1,3 @@
-
-/*----------------------------------------------------------------------------
-    File name   : Int_button.c
-    Description : demonstrates on how to interface a button as an external interupt
-                  source to wake up the processor from power-down modes
-
-    Procesor    : ARM7TDMI-S on LPC2103 MCU
-    
-  ECEg-4501 - Microcomputers and interfacing, lab exercise II
- ----------------------------------------------------------------------------*/
-
 #include "NXP/iolpc2148.h"
 #include "interrupts.h"
 #include "led.h"
@@ -52,18 +41,6 @@ void delay_one(unsigned long a)
   while(--a!=0);
 
 }
-
-/*-------------------------------------------------------------------------
-   Function Name: button_init
-
-   Parameters: None
- 
-   Return:  None
- 
-   Description: Initializes the button as falling edge triggered
-                external interrupt source on the MCU
-                (refer cha-4 "System control" - 4.5 External interrupt inputs)
- ---------------------------------------------------------------------------*/
 void button_init(void)
 {
    PINSEL0_bit.P0_14 = 0x2;  //select external interrupt function on pin P0.14 (EINT 1)
@@ -83,17 +60,6 @@ void delay_int(unsigned long d)
 {
   while(--d!=0);
 }
-
-/*-------------------------------------------------------------------------
-   Function Name: button_ISR
-
-   Parameters: None
- 
-   Return    :  None
- 
-   Description: An interrupt service routine (ISR) to handle the external interrupt
-                request by the button
- ---------------------------------------------------------------------------*/
 #pragma section = ".fiqisr"      //locate code below on the FIQ mode stack
 
 void button_ISR(void) @ ".fiqisr"

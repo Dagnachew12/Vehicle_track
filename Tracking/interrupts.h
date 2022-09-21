@@ -1,11 +1,3 @@
-/*--------------------------------------------------------------
- File:      interrupts.h
- Purpose:   Header file for interrupt management
- Compiler:  IAR EW 5.5
- System:    Philips LPC2148 MCU with ARM7TDMI-s core
-----------------------------------------------------------------*/
-
-//If this file is not included by another program, define it here (avoids multiple definitions)  
 #ifndef   __INTERRUPTS_H
 #define   __INTERRUPTS_H
 

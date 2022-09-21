@@ -1,46 +1,10 @@
-/* ===================================================================================================
-   This software is a driver for all character LCD (alpahnumeric LCD) modules based on
-     the Hitachi HD487x chip on glass (COG) LCD controller IC. (get datasheet in the folder containing this file)
-	 
-	 Compatibility:  LM016: 2 rows x 16 characters alphanumeric LCD module
-	                 LM017: 2 rows x 32 characters alphanumeric LCD module
-                         LM018: 2 rows x 40 characters alphanumeric LCD module
-                         LM020: 1 row  x 16 characters alphanumeric LCD module
-                         LM032: 2 rows x 20 characters alphanumeric LCD module
-                         LM041: 4 rows x 16 characters alphanumeric LCD module
-	                 LM044: 4 rows x 20 characters alphanumeric LCD module
-	
-	This specific example uses the LM016 LCD module (which is the one on the Edu Board) 
-         (In this example the 8-bit parallel interface is used)
-	
-	Note: See the shematic in folder "simulation" and the datasheet... to understand the HW connection
-                  (The connections are in accordance with the Edu board)
-              
-             ARM P1[16..23] ------------ LCD Data[0..7]
-             ARM P1_25 ----------------- LCD E  (Enable clock pulse)
-             ARM P1_24 ----------------- LCD RS (Register Select: RS = 0 -> command mode; RS = 1 -> data mode)
-             ARM P0_22 ----------------- LCD RW (RW = 0 -> write to LCD; RW = 1 -> read from LCD)
-             ARM P0_30 ----------------- LCD Backlight control (LCD_BKL)
-              
-    $$ ECEG-4501 Microcomputers & Interfacing, Lab exercise.  Prepared by: Daniel D. @ ECED of AAiT $$
-======================================================================================================= */
+
 	
 #include "NXP/iolpc2148.h"
 #include "lcd.h"
 
 void delay(unsigned long a);
 
-/*-------------------------------------------------------------------------
-   Function Name: lcd_command
-
-   Parameters: Command to be sent to LCD
- 
-   Return:  None
- 
-   Description: Sends a command byte to the LCD COG controller (Hitachi HD4878)
-
-   Note: See the LCD datasheet 
- ---------------------------------------------------------------------------*/
 void lcd_cmd(char cmd)
 {
    IO1CLR_bit.P1_24 = 1;    //command mode (RS = 0)
@@ -54,17 +18,6 @@ void lcd_cmd(char cmd)
    delay(100);            //delay a little for the LCD to settle
 }
 
-/*-------------------------------------------------------------------------
-   Function Name: lcd_data
-
-   Parameters: data to be sent to LCD
- 
-   Return:  None
- 
-   Description: Sends a command byte to the LCD COG controller (Hitachi HD4878)
-
-   Note: See the LCD datasheet 
- ---------------------------------------------------------------------------*/
 void lcd_data(char data)
 {
    IO1SET_bit.P1_24 = 1;  //data mode (RS = 1)
@@ -79,15 +32,6 @@ void lcd_data(char data)
    delay(100);              //delay a little for the LCD to settle
 }
 
-/*-------------------------------------------------------------------------
-   Function Name: lcd_gotoXY
-
-   Parameters: row and column address of LCD character
- 
-   Return:  None
- 
-   Description: put the cursor to address (row,col)
- ---------------------------------------------------------------------------*/
 void lcd_gotoXY(char row, char col)
 {
   char address;
@@ -100,32 +44,12 @@ void lcd_gotoXY(char row, char col)
   lcd_cmd(address + col);         //set address (row and column) 
 }
 
-/*-------------------------------------------------------------------------
-   Function Name: lcd_put
-
-   Parameters: the character to be put on LCD and the position on the screen
- 
-   Return:  None
- 
-   Description: put a character on LCD at address specified by (row,col)
- ---------------------------------------------------------------------------*/
 void lcd_put(char character, char row, char col)
 {
    lcd_gotoXY(row,col);
    lcd_data(character);
 }
 
-/*-------------------------------------------------------------------------
-   Function Name: lcd_write
-
-   Parameters: the string to be printed on LCD and the starting position on the screen
- 
-   Return:  None
- 
-   Description: prints a character string on LCD starting at address specified by (row,col)
- ---------------------------------------------------------------------------*/
-void lcd_Write(char *buffer,char row,char col)
-{
    lcd_gotoXY(row,col);
    
    while(*buffer != 0)
@@ -134,15 +58,6 @@ void lcd_Write(char *buffer,char row,char col)
    }
 }
 
-/*-------------------------------------------------------------------------
-   Function Name: lcd_init
-
-   Parameters: None
- 
-   Return:  None
- 
-   Description: initializes the LCD module (see initialization process on datasheet)
- ---------------------------------------------------------------------------*/
 void lcd_init(void)
 {
    IO1DIR |= 0xFFFFFFFF;  //set direction to output
@@ -171,17 +86,6 @@ void lcd_init(void)
    delay(40000);          //around 5ms
 }
 
-/*-------------------------------------------------------------------------
-   Function Name: lcd_backlight
-
-   Parameters: option, either ON or OFF
- 
-   Return:  None
- 
-   Description: Turns the LCD backlight ON or OFF (only on the EduBoard)
-
-   Note: See the EduBoard schematic (page 5)
- ---------------------------------------------------------------------------*/
 void lcd_backlight(char option)
 {
    IO0DIR_bit.P0_30 = 1;
