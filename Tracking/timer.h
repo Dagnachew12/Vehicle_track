@@ -1,4 +1,3 @@
-
 //1KHZ @ PCLK = 12MHz
 #define PWM_FREQ 1000 
 #define PWM_FREQ1 1000 
