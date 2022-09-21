@@ -1,10 +1,3 @@
-/*--------------------------------------------------------------
- File:      button.h
- Purpose:   Header file for button driver
- Compiler:  IAR EW 5.5
- System:    Philips LPC2148 MCU with ARM7TDMI-s core
-----------------------------------------------------------------*/
-
 #include "NXP/iolpc2148.h"  //for register definitions
 
 //Some macros
