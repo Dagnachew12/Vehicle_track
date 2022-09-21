@@ -1,0 +1,504 @@
+###############################################################################
+#
+# IAR ELF Linker V7.50.2.10312/W32 for ARM                21/Jan/2017  11:42:23
+# Copyright 2007-2015 IAR Systems AB.
+#
+#    Output file  =  
+#        C:\Users\Dagne\Desktop\4th
+#        yr\Project_Interface\code\Debug\Exe\c.out.tmp
+#    Map file     =  
+#        C:\Users\Dagne\Desktop\4th yr\Project_Interface\code\Debug\List\c.map
+#    Command line =  
+#        "C:\Users\Dagne\Desktop\4th yr\Project_Interface\code\Debug\Obj\adc.o"
+#        "C:\Users\Dagne\Desktop\4th
+#        yr\Project_Interface\code\Debug\Obj\ccw_button.o"
+#        "C:\Users\Dagne\Desktop\4th
+#        yr\Project_Interface\code\Debug\Obj\cw_button.o"
+#        "C:\Users\Dagne\Desktop\4th
+#        yr\Project_Interface\code\Debug\Obj\gsm_gps.o"
+#        "C:\Users\Dagne\Desktop\4th
+#        yr\Project_Interface\code\Debug\Obj\interrupts.o"
+#        "C:\Users\Dagne\Desktop\4th yr\Project_Interface\code\Debug\Obj\lcd.o"
+#        "C:\Users\Dagne\Desktop\4th yr\Project_Interface\code\Debug\Obj\led.o"
+#        "C:\Users\Dagne\Desktop\4th
+#        yr\Project_Interface\code\Debug\Obj\main.o"
+#        "C:\Users\Dagne\Desktop\4th
+#        yr\Project_Interface\code\Debug\Obj\speaker.o"
+#        "C:\Users\Dagne\Desktop\4th
+#        yr\Project_Interface\code\Debug\Obj\system.o"
+#        "C:\Users\Dagne\Desktop\4th
+#        yr\Project_Interface\code\Debug\Obj\timer.o" -o
+#        "C:\Users\Dagne\Desktop\4th
+#        yr\Project_Interface\code\Debug\Exe\c.out.tmp" --redirect
+#        _Printf=_PrintfFull --redirect _Scanf=_ScanfFull --map
+#        "C:\Users\Dagne\Desktop\4th
+#        yr\Project_Interface\code\Debug\List\c.map" --config "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\config\linker\NXP\LPC2148.icf" --semihosting --entry
+#        __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x000001fb] |
+                [from 0x00000200 to 0x0007ffff] { ro };
+"P2":  place in [from 0x40000000 to 0x4000003f] |
+                [from 0x40000120 to 0x40007fdf] {
+          rw, block CSTACK, block SVC_STACK, block IRQ_STACK, block FIQ_STACK,
+          block UND_STACK, block ABT_STACK, block HEAP };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A1":                                       0x3c
+  .intvec            ro code  0x00000000    0x3c  cstartup.o [4]
+                            - 0x0000003c    0x3c
+
+"P1", part 1 of 2:                           0x0
+  .rodata            const    0x0000003c     0x0  copy_init3.o [4]
+
+"P1", part 2 of 2:                        0x2574
+  .text              ro code  0x00000200   0xcfc  gsm_gps.o [1]
+  .text              ro code  0x00000efc   0x1d4  I32DivMod.o [4]
+  .text              ro code  0x000010d0     0x4  IntDivZer.o [4]
+  .text              ro code  0x000010d4   0x254  lcd.o [1]
+  .text              ro code  0x00001328   0x254  main.o [1]
+  .text              ro code  0x0000157c   0x12c  system.o [1]
+  .text              ro code  0x000016a8   0x1b0  interrupts.o [1]
+  .text              ro code  0x00001858    0x8c  cw_button.o [1]
+  .text              ro code  0x000018e4    0x7c  led.o [1]
+  .text              ro code  0x00001960    0xb0  ccw_button.o [1]
+  .text              ro code  0x00001a10   0x1e8  adc.o [1]
+  .text              ro code  0x00001bf8   0x1fc  timer.o [1]
+  .text              ro code  0x00001df4    0x7c  speaker.o [1]
+  .fiqisr            ro code  0x00001e70   0x1d4  cw_button.o [1]
+  .fiqisr            ro code  0x00002044   0x1d0  ccw_button.o [1]
+  .text              ro code  0x00002214    0x58  cstartup.o [4]
+  Veneer             ro code  0x0000226c     0xc  - Linker created -
+  .text              ro code  0x00002278    0x2c  cmain.o [4]
+  .text              ro code  0x000022a4     0x8  low_level_init.o [3]
+  .text              ro code  0x000022ac    0x32  data_init.o [4]
+  .text              ro code  0x000022e0     0x4  exit.o [3]
+  .text              ro code  0x000022e4    0x20  exit.o [5]
+  .text              ro code  0x00002304    0x10  cexit.o [4]
+  .rodata            const    0x00002314    0x38  main.o [1]
+  .rodata            const    0x0000234c    0x30  ccw_button.o [1]
+  .rodata            const    0x0000237c    0x30  main.o [1]
+  .text              ro code  0x000023ac    0x30  copy_init3.o [4]
+  .rodata            const    0x000023dc    0x28  cw_button.o [1]
+  .rodata            const    0x00002404    0x24  main.o [1]
+  .iar.init_table    const    0x00002428    0x14  - Linker created -
+  .rodata            const    0x0000243c    0x20  cw_button.o [1]
+  .rodata            const    0x0000245c    0x18  cw_button.o [1]
+  .rodata            const    0x00002474    0x18  main.o [1]
+  .rodata            const    0x0000248c    0x14  ccw_button.o [1]
+  .rodata            const    0x000024a0    0x14  ccw_button.o [1]
+  .rodata            const    0x000024b4    0x14  ccw_button.o [1]
+  .rodata            const    0x000024c8    0x14  main.o [1]
+  .rodata            const    0x000024dc    0x14  main.o [1]
+  .rodata            const    0x000024f0    0x14  main.o [1]
+  .rodata            const    0x00002504    0x10  cw_button.o [1]
+  .rodata            const    0x00002514    0x10  main.o [1]
+  .rodata            const    0x00002524     0xc  gsm_gps.o [1]
+  .rodata            const    0x00002530     0xc  gsm_gps.o [1]
+  .rodata            const    0x0000253c     0xc  main.o [1]
+  .rodata            const    0x00002548     0x8  main.o [1]
+  .rodata            const    0x00002550     0x8  main.o [1]
+  .text              ro code  0x00002558     0x4  vectortrap.o [4]
+  .text              ro code  0x0000255c     0x4  xreturnswi.o [5]
+  Initializer bytes  const    0x00002560   0x214  <for P2 s0>
+                            - 0x00002774  0x2574
+
+"P2", part 1 of 2:                         0x214
+  P2 s0                       0x40000120   0x214  <Init block>
+    .data            inited   0x40000120    0xc8  ccw_button.o [1]
+    .data            inited   0x400001e8    0xc8  cw_button.o [1]
+    .data            inited   0x400002b0    0x38  gsm_gps.o [1]
+    .data            inited   0x400002e8    0x18  gsm_gps.o [1]
+    .data            inited   0x40000300     0xc  gsm_gps.o [1]
+    .bss             inited   0x4000030c     0xc  gsm_gps.o [1]
+    .bss             inited   0x40000318     0xc  gsm_gps.o [1]
+    .data            inited   0x40000324     0x8  gsm_gps.o [1]
+    .data            inited   0x4000032c     0x4  gsm_gps.o [1]
+    .bss             inited   0x40000330     0x4  interrupts.o [1]
+                            - 0x40000334   0x214
+
+"P2", part 2 of 2:                        0x1060
+  CSTACK                      0x40000338  0x1000  <Block>
+    CSTACK           uninit   0x40000338  0x1000  <Block tail>
+  IRQ_STACK                   0x40001338    0x50  <Block>
+    IRQ_STACK        uninit   0x40001338    0x50  <Block tail>
+  FIQ_STACK                   0x40001388    0x10  <Block>
+    FIQ_STACK        uninit   0x40001388    0x10  <Block tail>
+                            - 0x40001398  0x1060
+
+Absolute sections, part 1 of 26:             0x1
+  .noinit            uninit   0xe000c000     0x1  gsm_gps.o [1]
+                            - 0xe000c001     0x1
+
+Absolute sections, part 2 of 26:             0x9
+  .noinit            uninit   0xe000c004     0x4  gsm_gps.o [1]
+  .noinit            uninit   0xe000c008     0x4  gsm_gps.o [1]
+  .noinit            uninit   0xe000c00c     0x1  gsm_gps.o [1]
+                            - 0xe000c00d     0x9
+
+Absolute sections, part 3 of 26:             0x1
+  .noinit            uninit   0xe000c014     0x1  gsm_gps.o [1]
+                            - 0xe000c015     0x1
+
+Absolute sections, part 4 of 26:             0x1
+  .noinit            uninit   0xe000c028     0x1  gsm_gps.o [1]
+                            - 0xe000c029     0x1
+
+Absolute sections, part 5 of 26:             0x1
+  .noinit            uninit   0xe000c030     0x1  gsm_gps.o [1]
+                            - 0xe000c031     0x1
+
+Absolute sections, part 6 of 26:             0x1
+  .noinit            uninit   0xe0010000     0x1  gsm_gps.o [1]
+                            - 0xe0010001     0x1
+
+Absolute sections, part 7 of 26:             0x9
+  .noinit            uninit   0xe0010004     0x4  gsm_gps.o [1]
+  .noinit            uninit   0xe0010008     0x4  gsm_gps.o [1]
+  .noinit            uninit   0xe001000c     0x1  gsm_gps.o [1]
+                            - 0xe001000d     0x9
+
+Absolute sections, part 8 of 26:             0x1
+  .noinit            uninit   0xe0010014     0x1  gsm_gps.o [1]
+                            - 0xe0010015     0x1
+
+Absolute sections, part 9 of 26:             0x1
+  .noinit            uninit   0xe0010028     0x1  gsm_gps.o [1]
+                            - 0xe0010029     0x1
+
+Absolute sections, part 10 of 26:            0x1
+  .noinit            uninit   0xe0010030     0x1  gsm_gps.o [1]
+                            - 0xe0010031     0x1
+
+Absolute sections, part 11 of 26:            0x4
+  .noinit            uninit   0xe0014004     0x4  timer.o [1]
+                            - 0xe0014008     0x4
+
+Absolute sections, part 12 of 26:            0x4
+  .noinit            uninit   0xe001400c     0x4  timer.o [1]
+                            - 0xe0014010     0x4
+
+Absolute sections, part 13 of 26:            0x8
+  .noinit            uninit   0xe0014014     0x4  timer.o [1]
+  .noinit            uninit   0xe0014018     0x4  timer.o [1]
+                            - 0xe001401c     0x8
+
+Absolute sections, part 14 of 26:            0x4
+  .noinit            uninit   0xe0014020     0x4  timer.o [1]
+                            - 0xe0014024     0x4
+
+Absolute sections, part 15 of 26:            0xc
+  .noinit            uninit   0xe0014048     0x4  timer.o [1]
+  .noinit            uninit   0xe001404c     0x4  timer.o [1]
+  .noinit            uninit   0xe0014050     0x4  timer.o [1]
+                            - 0xe0014054     0xc
+
+Absolute sections, part 16 of 26:           0x1c
+  .noinit            uninit   0xe0028004     0x4  speaker.o [1]
+  .noinit            uninit   0xe0028008     0x4  speaker.o [1]
+  .noinit            uninit   0xe002800c     0x4  speaker.o [1]
+  .noinit            uninit   0xe0028010     0x4  lcd.o [1]
+  .noinit            uninit   0xe0028014     0x4  lcd.o [1]
+  .noinit            uninit   0xe0028018     0x4  timer.o [1]
+  .noinit            uninit   0xe002801c     0x4  lcd.o [1]
+                            - 0xe0028020    0x1c
+
+Absolute sections, part 17 of 26:            0x8
+  .noinit            uninit   0xe002c000     0x4  timer.o [1]
+  .noinit            uninit   0xe002c004     0x4  ccw_button.o [1]
+                            - 0xe002c008     0x8
+
+Absolute sections, part 18 of 26:            0x8
+  .noinit            uninit   0xe0034000     0x4  adc.o [1]
+  .noinit            uninit   0xe0034004     0x4  adc.o [1]
+                            - 0xe0034008     0x8
+
+Absolute sections, part 19 of 26:           0x10
+  .noinit            uninit   0xe01fc080     0x4  system.o [1]
+  .noinit            uninit   0xe01fc084     0x4  system.o [1]
+  .noinit            uninit   0xe01fc088     0x4  system.o [1]
+  .noinit            uninit   0xe01fc08c     0x4  system.o [1]
+                            - 0xe01fc090    0x10
+
+Absolute sections, part 20 of 26:            0x4
+  .noinit            uninit   0xe01fc100     0x4  system.o [1]
+                            - 0xe01fc104     0x4
+
+Absolute sections, part 21 of 26:           0x10
+  .noinit            uninit   0xe01fc140     0x4  cw_button.o [1]
+  .noinit            uninit   0xe01fc144     0x4  cw_button.o [1]
+  .noinit            uninit   0xe01fc148     0x4  cw_button.o [1]
+  .noinit            uninit   0xe01fc14c     0x4  cw_button.o [1]
+                            - 0xe01fc150    0x10
+
+Absolute sections, part 22 of 26:            0xc
+  .noinit            uninit   0xfffff00c     0x4  interrupts.o [1]
+  .noinit            uninit   0xfffff010     0x4  interrupts.o [1]
+  .noinit            uninit   0xfffff014     0x4  interrupts.o [1]
+                            - 0xfffff018     0xc
+
+Absolute sections, part 23 of 26:            0x4
+  .noinit            uninit   0xfffff01c     0x4  interrupts.o [1]
+                            - 0xfffff020     0x4
+
+Absolute sections, part 24 of 26:            0x8
+  .noinit            uninit   0xfffff030     0x4  interrupts.o [1]
+  .noinit            uninit   0xfffff034     0x4  interrupts.o [1]
+                            - 0xfffff038     0x8
+
+Absolute sections, part 25 of 26:            0x4
+  .noinit            uninit   0xfffff100     0x4  interrupts.o [1]
+                            - 0xfffff104     0x4
+
+Absolute sections, part 26 of 26:            0x4
+  .noinit            uninit   0xfffff200     0x4  interrupts.o [1]
+                            - 0xfffff204     0x4
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Copy (__iar_copy_init3)
+    1 source range, total size 0x214:
+          0x00002560  0x214
+    1 destination range, total size 0x214:
+          0x40000120  0x214
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  ro data  rw data  rw data
+                                                  (abs)
+    ------            -------  -------  -------  -------
+C:\Users\Dagne\Desktop\4th yr\Project_Interface\code\Debug\Obj: [1]
+    adc.o                 488                          8
+    ccw_button.o          640      308      200        4
+    cw_button.o           608      312      200       16
+    gsm_gps.o           3 324      152      128       26
+    interrupts.o          432        4        4       32
+    lcd.o                 596                         12
+    led.o                 124
+    main.o                596      268
+    speaker.o             124                         12
+    system.o              300                         20
+    timer.o               508                         40
+    ----------------------------------------------------
+    Total:              7 740    1 044      532      170
+
+command line: [2]
+    ----------------------------------------------------
+    Total:
+
+dl4t_aln.a: [3]
+    exit.o                  4
+    low_level_init.o        8
+    ----------------------------------------------------
+    Total:                 12
+
+rt4t_al.a: [4]
+    I32DivMod.o           468
+    IntDivZer.o             4
+    cexit.o                16
+    cmain.o                44
+    copy_init3.o           48
+    cstartup.o            148
+    data_init.o            50
+    vectortrap.o            4
+    ----------------------------------------------------
+    Total:                782
+
+shs_l.a: [5]
+    exit.o                 32
+    xreturnswi.o            4
+    ----------------------------------------------------
+    Total:                 36
+
+    Gaps                    2
+    Linker created         12       20    4 192
+--------------------------------------------------------
+    Grand Total:        8 584    1 064    4 724      170
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x00002428          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x0000243c          --   Gb  - Linker created -
+?main                   0x00002278         Code  Gb  cmain.o [4]
+Abort_Handler           0x00002558         Code  Wk  vectortrap.o [4]
+CSTACK$$Base            0x40000338          --   Gb  - Linker created -
+CSTACK$$Limit           0x40001338          --   Gb  - Linker created -
+DefVectISR              0x00001854    0x4  Code  Lc  interrupts.o [1]
+FIQ_Handler             0x0000182c   0x24  Code  Gb  interrupts.o [1]
+FIQ_STACK$$Base         0x40001388          --   Gb  - Linker created -
+FIQ_STACK$$Limit        0x40001398          --   Gb  - Linker created -
+IRQ_Handler             0x000017fc   0x30  Code  Gb  interrupts.o [1]
+IRQ_STACK$$Base         0x40001338          --   Gb  - Linker created -
+IRQ_STACK$$Limit        0x40001388          --   Gb  - Linker created -
+PWMMR0                  0xe0014018    0x4  Data  Gb  timer.o [1]
+PWMMR2                  0xe0014020    0x4  Data  Gb  timer.o [1]
+PWMMR6                  0xe0014048    0x4  Data  Gb  timer.o [1]
+PWMPR                   0xe001400c    0x4  Data  Gb  timer.o [1]
+PWM_changeDuty          0x00001d9c   0x3c  Code  Gb  timer.o [1]
+PWM_init                0x00001bf8   0xec  Code  Gb  timer.o [1]
+PWM_start               0x00001ce4   0x64  Code  Gb  timer.o [1]
+PWM_stop                0x00001d78   0x24  Code  Gb  timer.o [1]
+Prefetch_Handler        0x00002558         Code  Wk  vectortrap.o [4]
+Region$$Table$$Base     0x00002428          --   Gb  - Linker created -
+Region$$Table$$Limit    0x0000243c          --   Gb  - Linker created -
+SWI_Handler             0x00002558         Code  Wk  vectortrap.o [4]
+U0RBRTHR                0xe000c000    0x1  Data  Gb  gsm_gps.o [1]
+U1RBRTHR                0xe0010000    0x1  Data  Gb  gsm_gps.o [1]
+Undefined_Handler       0x00002558         Code  Wk  vectortrap.o [4]
+VICDefVectAddr          0xfffff034    0x4  Data  Gb  interrupts.o [1]
+VICVectAddr             0xfffff030    0x4  Data  Gb  interrupts.o [1]
+VICVectAddr0            0xfffff100    0x4  Data  Gb  interrupts.o [1]
+VIC_init                0x000016a8   0x90  Code  Gb  interrupts.o [1]
+_A_AD0CR                0xe0034000    0x4  Data  Gb  adc.o [1]
+_A_AD0GDR               0xe0034004    0x4  Data  Gb  adc.o [1]
+_A_EXTINT               0xe01fc140    0x4  Data  Gb  cw_button.o [1]
+_A_EXTMODE              0xe01fc148    0x4  Data  Gb  cw_button.o [1]
+_A_EXTPOLAR             0xe01fc14c    0x4  Data  Gb  cw_button.o [1]
+_A_EXTWAKE              0xe01fc144    0x4  Data  Gb  cw_button.o [1]
+_A_IO0CLR               0xe002800c    0x4  Data  Gb  speaker.o [1]
+_A_IO0DIR               0xe0028008    0x4  Data  Gb  speaker.o [1]
+_A_IO0SET               0xe0028004    0x4  Data  Gb  speaker.o [1]
+_A_IO1CLR               0xe002801c    0x4  Data  Gb  lcd.o [1]
+_A_IO1DIR               0xe0028018    0x4  Data  Gb  timer.o [1]
+_A_IO1PIN               0xe0028010    0x4  Data  Gb  lcd.o [1]
+_A_IO1SET               0xe0028014    0x4  Data  Gb  lcd.o [1]
+_A_PINSEL0              0xe002c000    0x4  Data  Gb  timer.o [1]
+_A_PINSEL1              0xe002c004    0x4  Data  Gb  ccw_button.o [1]
+_A_PLLCFG               0xe01fc084    0x4  Data  Gb  system.o [1]
+_A_PLLCON               0xe01fc080    0x4  Data  Gb  system.o [1]
+_A_PLLFEED              0xe01fc08c    0x4  Data  Gb  system.o [1]
+_A_PLLSTAT              0xe01fc088    0x4  Data  Gb  system.o [1]
+_A_PWMLER               0xe0014050    0x4  Data  Gb  timer.o [1]
+_A_PWMMCR               0xe0014014    0x4  Data  Gb  timer.o [1]
+_A_PWMPCR               0xe001404c    0x4  Data  Gb  timer.o [1]
+_A_PWMTCR               0xe0014004    0x4  Data  Gb  timer.o [1]
+_A_U0FCR                0xe000c008    0x4  Data  Gb  gsm_gps.o [1]
+_A_U0FDR                0xe000c028    0x1  Data  Gb  gsm_gps.o [1]
+_A_U0IER                0xe000c004    0x4  Data  Gb  gsm_gps.o [1]
+_A_U0LCR                0xe000c00c    0x1  Data  Gb  gsm_gps.o [1]
+_A_U0LSR                0xe000c014    0x1  Data  Gb  gsm_gps.o [1]
+_A_U0TER                0xe000c030    0x1  Data  Gb  gsm_gps.o [1]
+_A_U1FCR                0xe0010008    0x4  Data  Gb  gsm_gps.o [1]
+_A_U1FDR                0xe0010028    0x1  Data  Gb  gsm_gps.o [1]
+_A_U1IER                0xe0010004    0x4  Data  Gb  gsm_gps.o [1]
+_A_U1LCR                0xe001000c    0x1  Data  Gb  gsm_gps.o [1]
+_A_U1LSR                0xe0010014    0x1  Data  Gb  gsm_gps.o [1]
+_A_U1TER                0xe0010030    0x1  Data  Gb  gsm_gps.o [1]
+_A_VICIntEnClear        0xfffff014    0x4  Data  Gb  interrupts.o [1]
+_A_VICIntEnable         0xfffff010    0x4  Data  Gb  interrupts.o [1]
+_A_VICIntSelect         0xfffff00c    0x4  Data  Gb  interrupts.o [1]
+_A_VICSoftIntClear      0xfffff01c    0x4  Data  Gb  interrupts.o [1]
+_A_VICVectCntl0         0xfffff200    0x4  Data  Gb  interrupts.o [1]
+_A_VPBDIV               0xe01fc100    0x4  Data  Gb  system.o [1]
+__aeabi_idiv            0x00000efc         Code  Gb  I32DivMod.o [4]
+__aeabi_idiv0           0x000010d0         Code  Gb  IntDivZer.o [4]
+__aeabi_idivmod         0x00000efc         Code  Gb  I32DivMod.o [4]
+__aeabi_uidiv           0x00000f2c         Code  Gb  I32DivMod.o [4]
+__aeabi_uidivmod        0x00000f2c         Code  Gb  I32DivMod.o [4]
+__cmain                 0x00002278         Code  Gb  cmain.o [4]
+__exit                  0x000022e4   0x20  Code  Gb  exit.o [5]
+__iar_copy_init3        0x000023ad   0x30  Code  Gb  copy_init3.o [4]
+__iar_data_init3        0x000022ad   0x30  Code  Gb  data_init.o [4]
+__iar_program_start     0x00002214         Code  Gb  cstartup.o [4]
+__iar_return_from_swi   0x0000255c    0x4  Code  Gb  xreturnswi.o [5]
+__low_level_init        0x000022a4    0x8  Code  Gb  low_level_init.o [3]
+__vector                0x00000000         Data  Gb  cstartup.o [4]
+_call_main              0x0000228c         Code  Gb  cmain.o [4]
+_exit                   0x00002304         Code  Gb  cexit.o [4]
+_main                   0x00002294         Code  Gb  cmain.o [4]
+adc_init                0x00001a10   0xfc  Code  Gb  adc.o [1]
+adc_read                0x00001b0c   0xc4  Code  Gb  adc.o [1]
+at                      0x4000032c    0x4  Data  Gb  gsm_gps.o [1]
+ate                     0x40000324    0x8  Data  Gb  gsm_gps.o [1]
+button3_ISR             0x00002044  0x1d0  Code  Gb  ccw_button.o [1]
+button3_init            0x0000198c   0x70  Code  Gb  ccw_button.o [1]
+button_ISR              0x00001e70  0x1d4  Code  Gb  cw_button.o [1]
+button_init             0x00001868   0x68  Code  Gb  cw_button.o [1]
+buzzer_off              0x00001e50   0x20  Code  Gb  speaker.o [1]
+buzzer_on               0x00001e30   0x20  Code  Gb  speaker.o [1]
+celi_to_fher            0x00001bd0   0x28  Code  Gb  adc.o [1]
+clock_init              0x0000157c  0x12c  Code  Gb  system.o [1]
+cmgf                    0x40000300    0xc  Data  Gb  gsm_gps.o [1]
+cmgs                    0x400002e8   0x18  Data  Gb  gsm_gps.o [1]
+delay                   0x00001308   0x10  Code  Gb  lcd.o [1]
+delay1                  0x00001960   0x2c  Code  Gb  ccw_button.o [1]
+delay_fun               0x00001328   0x10  Code  Gb  main.o [1]
+delay_one               0x00001858   0x10  Code  Gb  cw_button.o [1]
+delayfunc               0x000006f8   0x2c  Code  Gb  gsm_gps.o [1]
+exit                    0x000022e0    0x4  Code  Gb  exit.o [3]
+fiq_isr                 0x40000330    0x4  Data  Lc  interrupts.o [1]
+get_char                0x000005e4   0x28  Code  Gb  gsm_gps.o [1]
+gps_data                0x400001e8   0xc8  Data  Gb  cw_button.o [1]
+gps_data1               0x40000120   0xc8  Data  Gb  ccw_button.o [1]
+gsm_gps_init            0x00000200  0x304  Code  Gb  gsm_gps.o [1]
+install_FIQ             0x000017a8   0x54  Code  Gb  interrupts.o [1]
+install_IRQ             0x00001738   0x70  Code  Gb  interrupts.o [1]
+latitude                0x4000030c    0xc  Data  Lc  gsm_gps.o [1]
+lcd_Write               0x000011f0   0x3c  Code  Gb  lcd.o [1]
+lcd_cmd                 0x000010d4   0x64  Code  Gb  lcd.o [1]
+lcd_data                0x00001138   0x68  Code  Gb  lcd.o [1]
+lcd_gotoXY              0x000011a0   0x50  Code  Gb  lcd.o [1]
+lcd_init                0x0000122c   0xdc  Code  Gb  lcd.o [1]
+led_init                0x000018e4   0x3c  Code  Gb  led.o [1]
+led_off                 0x00001940   0x20  Code  Gb  led.o [1]
+led_on                  0x00001920   0x20  Code  Gb  led.o [1]
+longitude               0x40000318    0xc  Data  Lc  gsm_gps.o [1]
+main                    0x00001338  0x218  Code  Gb  main.o [1]
+msg                     0x400002b0   0x38  Data  Gb  gsm_gps.o [1]
+print_int               0x0000060c   0x9c  Code  Gb  gsm_gps.o [1]
+pwm_change2             0x00001d48   0x18  Code  Gb  timer.o [1]
+pwm_change6             0x00001d60   0x18  Code  Gb  timer.o [1]
+send_char               0x00000504   0x2c  Code  Gb  gsm_gps.o [1]
+send_char1              0x00000530   0x2c  Code  Gb  gsm_gps.o [1]
+send_location           0x00000820  0x6a0  Code  Gb  gsm_gps.o [1]
+send_string             0x0000055c   0x44  Code  Gb  gsm_gps.o [1]
+send_string1            0x000005a0   0x44  Code  Gb  gsm_gps.o [1]
+sendsms                 0x00000724   0xfc  Code  Gb  gsm_gps.o [1]
+sendstring              0x000006a8   0x28  Code  Gb  gsm_gps.o [1]
+sendstring1             0x000006d0   0x28  Code  Gb  gsm_gps.o [1]
+speaker_init            0x00001df4   0x3c  Code  Gb  speaker.o [1]
+
+
+[1] = C:\Users\Dagne\Desktop\4th yr\Project_Interface\code\Debug\Obj
+[2] = command line
+[3] = dl4t_aln.a
+[4] = rt4t_al.a
+[5] = shs_l.a
+
+  8 584 bytes of readonly  code memory
+  1 064 bytes of readonly  data memory
+  4 724 bytes of readwrite data memory (+ 170 absolute)
+
+Errors: none
+Warnings: none
